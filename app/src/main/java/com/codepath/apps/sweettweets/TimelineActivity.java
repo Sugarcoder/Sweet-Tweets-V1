@@ -67,6 +67,7 @@ public class TimelineActivity extends ActionBarActivity {
     }
 
 
+
     // Append more data into the adapter
 
 
