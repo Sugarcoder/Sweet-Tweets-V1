@@ -74,9 +74,10 @@ public class TimelineActivity extends ActionBarActivity {
 
     // This is to display the date on each post.
 
-    // getRelativeTimeAgo("Mon Apr 01 21:16:23 +0000 2014");
+    // getRelativeTimeAgo("Mon Apr 01 2015 21:16");
     public String getRelativeTimeAgo(String rawJsonDate) {
-        String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
+        // "EEE mm dd yy HH:mm:ss"
+        String twitterFormat = "ss";
         SimpleDateFormat sf = new SimpleDateFormat(twitterFormat, Locale.ENGLISH);
         sf.setLenient(true);
 
