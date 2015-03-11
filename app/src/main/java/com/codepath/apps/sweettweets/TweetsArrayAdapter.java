@@ -32,8 +32,10 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
             // CodePath guide: AdapterViews > Using an ArrayAdapter with ListView > Improving the performance with the ViewHolder pattern
 
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         // 1. Get the Tweets
         Tweet tweet = getItem(position);
 
@@ -48,11 +50,13 @@ public class TweetsArrayAdapter extends ArrayAdapter<Tweet> {
         ImageView ivProfileImage = (ImageView) convertView.findViewById(R.id.ivProfileImage);
         TextView tvUserName = (TextView) convertView.findViewById(R.id.tvUserName);
         TextView tvTweetsBody = (TextView) convertView.findViewById(R.id.tvTweetsBody);
+        TextView tvTime = (TextView) convertView.findViewById(R.id.tvTime);
 
 
         // 4. Populate data into the subviews
         tvUserName.setText(tweet.getUser().getScreenName());
         tvTweetsBody.setText(tweet.getBody());
+        tvTime.setText(tweet.getCreatedAt());
         ivProfileImage.setImageResource(android.R.color.transparent);      // Clear out the old image for a recycled view
         Picasso.with(getContext()).load(tweet.getUser().getProfileImageUrl()).into(ivProfileImage);       // Picasso is used to load the image url, retrieve the data, and insert it into the ImageView
 
