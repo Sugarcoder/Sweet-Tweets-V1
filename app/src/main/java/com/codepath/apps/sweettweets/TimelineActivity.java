@@ -26,6 +26,7 @@ public class TimelineActivity extends ActionBarActivity {
     private ArrayList<Tweet> tweets;
     private TweetsArrayAdapter aTweets; // Instantiating the objects
     private ListView lvTweets;
+    private long max_id = 0;
 
 
     @Override
@@ -72,35 +73,12 @@ public class TimelineActivity extends ActionBarActivity {
 
 
 
-    // This is to display the date on each post.
-
-    // getRelativeTimeAgo("Mon Apr 01 2015 21:16");
-    public String getRelativeTimeAgo(String rawJsonDate) {
-        // "EEE mm dd yy HH:mm:ss"
-        String twitterFormat = "ss";
-        SimpleDateFormat sf = new SimpleDateFormat(twitterFormat, Locale.ENGLISH);
-        sf.setLenient(true);
-
-        String relativeDate = "";
-        try {
-            long dateMillis = sf.parse(rawJsonDate).getTime();
-            relativeDate = DateUtils.getRelativeTimeSpanString(dateMillis,
-                    System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS).toString();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        return relativeDate;
-    }
-
-
-
 
     // Send an API request to get the Timeline Json
     // Fill the listview by creating the tweet objects from the Json
 
     private void populateTimeline() {
-        client.getHomeTimeline(new JsonHttpResponseHandler() {
+        client.getHomeTimeline(max_id, new JsonHttpResponseHandler() {
             // Success
 
             @Override
@@ -114,6 +92,7 @@ public class TimelineActivity extends ActionBarActivity {
 
             // Load the Models into the ListView
             aTweets.addAll(Tweet.fromJSONArray(json));
+            max_id = aTweets.getItem(aTweets.getCount() - 1).getUid();
             }
 
 
