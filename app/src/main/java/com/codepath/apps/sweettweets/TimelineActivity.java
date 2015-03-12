@@ -1,24 +1,23 @@
 package com.codepath.apps.sweettweets;
 
-import android.support.v7.app.ActionBarActivity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.text.format.DateUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+
 import com.codepath.apps.sweettweets.models.Tweet;
 import com.loopj.android.http.JsonHttpResponseHandler;
+
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Locale;
-
-
 
 public class TimelineActivity extends ActionBarActivity {
     // We need access to the Twitter Client
@@ -33,6 +32,11 @@ public class TimelineActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timeline);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#55ACEE")));
+        actionBar.setIcon(R.drawable.ic_iconpeople);
 
         // Find the ListView
         lvTweets = (ListView) findViewById(R.id.lvTweets);
@@ -68,10 +72,7 @@ public class TimelineActivity extends ActionBarActivity {
     }
 
 
-
     // Append more data into the adapter
-
-
 
 
     // Send an API request to get the Timeline Json
@@ -86,13 +87,13 @@ public class TimelineActivity extends ActionBarActivity {
                 Log.d("Debug", json.toString());
 
 
-            // Deserialize JSON
+                // Deserialize JSON
 
-            // Create Models and add them to the adapter
+                // Create Models and add them to the adapter
 
-            // Load the Models into the ListView
-            aTweets.addAll(Tweet.fromJSONArray(json));
-            max_id = aTweets.getItem(aTweets.getCount() - 1).getUid();
+                // Load the Models into the ListView
+                aTweets.addAll(Tweet.fromJSONArray(json));
+                max_id = aTweets.getItem(aTweets.getCount() - 1).getUid();
             }
 
 
@@ -106,7 +107,6 @@ public class TimelineActivity extends ActionBarActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 // Inflate the menu; this adds items to the action bar if it is present.
@@ -115,17 +115,15 @@ public class TimelineActivity extends ActionBarActivity {
     }
 
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-    // Handle action bar item clicks here. The action bar will
-    // automatically handle clicks on the Home/Up button, so long
-    // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
 
         int id = item.getItemId();
-    //noinspection SimplifiableIfStatement
+        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

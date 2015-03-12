@@ -1,9 +1,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.codepath.apps.sweettweets.TimelineActivity"
+    tools:context="com.codepath.apps.sweettweets.TimelineActivity" >
 
-     >
+
+    <item android:id="@+id/action_compose"
+        android:title="@string/action_compose"
+        android:orderInCategory="100" app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_compose"/>
+
 
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
