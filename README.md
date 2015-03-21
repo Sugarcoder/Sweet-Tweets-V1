@@ -12,7 +12,7 @@ This is a Twitter application with the ability to read tweets.
 
 
 <br>
-<img src="http://i1369.photobucket.com/albums/ag238/sugarcoder/CodePath/Twitter2_zpsxgwotwvy.png" border="0" alt=" photo Twitter2_zpsxgwotwvy.png" width="300" height="400" />
+<img src="http://i1369.photobucket.com/albums/ag238/sugarcoder/CodePath/Twitter1_zpscik4qdgz.png" width="300" height="400" />
 
 
 ### APIs & Libraries: 
