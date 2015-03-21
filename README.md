@@ -21,7 +21,8 @@ This is a simple application based on reading tweets from Twitter.
 
 ### Acknowledgements:
 
-- CodePath
+- <a href="http://www.codepath.com">CodePath</a>
+
 
 
 
