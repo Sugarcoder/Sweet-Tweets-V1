@@ -1,4 +1,4 @@
-# Sweet Tweets
+# Sweet Tweets v1
 
 This is a simple Twitter application with the ability to read tweets.
 
