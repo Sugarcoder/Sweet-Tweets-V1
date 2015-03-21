@@ -1,6 +1,6 @@
 # Sweet Tweets v1
 
-This is a simple Twitter application with the ability to read tweets.
+This is a Twitter application with the ability to read tweets.
 
 ## Features:
 
